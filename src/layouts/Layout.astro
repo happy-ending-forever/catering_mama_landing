@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Catering Mama - Katering #1 Pilihan Keluarga. Sajian lezat dengan cinta untuk pernikahan, aqiqah, event kantor, dan nasi box. Higienis, halal, tepat waktu." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="keywords" content="catering, katering, pernikahan, aqiqah, nasi box, Jakarta, halal">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>{title}</title>
+</head>
+<body class="text-slate-800 bg-white selection:bg-yellow-200 overflow-x-hidden">
+  <slot />
+</body>
+</html>

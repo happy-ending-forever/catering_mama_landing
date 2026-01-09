@@ -1,0 +1,33 @@
+---
+import { Utensils } from 'lucide-astro';
+
+const navLinks = [
+  { name: 'Layanan', href: '#layanan' },
+  { name: 'Menu', href: '#menu' },
+  { name: 'Keunggulan', href: '#keunggulan' },
+  { name: 'Testimoni', href: '#testimoni' },
+  { name: 'Kontak', href: '#kontak' },
+];
+---
+
+<footer class="bg-slate-900 text-white py-20">
+  <div class="container mx-auto px-6 text-center">
+    <div class="flex flex-col items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="bg-yellow-400 p-2.5 rounded-xl">
+          <Utensils class="w-7 h-7 text-slate-900" />
+        </div>
+        <span class="text-3xl font-bold tracking-tight font-outfit">Catering<span class="text-yellow-400">Mama</span></span>
+      </div>
+      <p class="text-slate-400 text-lg max-w-md leading-relaxed">
+        Memberikan kebahagiaan melalui hidangan lezat dan berkualitas sejak tahun 2010.
+      </p>
+      <div class="flex gap-10 text-slate-400">
+        {navLinks.map((link) => (
+          <a href={link.href} class="hover:text-yellow-400 transition-colors">{link.name}</a>
+        ))}
+      </div>
+      <p class="pt-8 text-slate-600">&copy; 2026 Catering Mama. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

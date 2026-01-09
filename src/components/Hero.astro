@@ -1,0 +1,78 @@
+---
+import { Star, ChevronRight, CheckCircle } from 'lucide-astro';
+
+interface Props {
+  whatsappLink: string;
+}
+
+const { whatsappLink } = Astro.props;
+---
+
+<header class="relative min-h-[85vh] flex items-center pt-24 md:pt-32 pb-16">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
+    <div class="space-y-8 animate-fade-in-up">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight">
+        Sajian <span class="text-yellow-500">Lezat</span> Dengan Cinta Dari Mama.
+      </h1>
+
+      <div>
+        <div class="inline-flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-full text-xs md:text-sm font-semibold border border-yellow-100">
+          <Star class="w-4 h-4 fill-yellow-500 text-yellow-500" />
+          Katering #1 Pilihan Keluarga
+        </div>
+      </div>
+
+      <p class="text-base md:text-lg text-slate-600 max-w-lg leading-relaxed">
+        Menghadirkan rasa otentik rumahan dengan kualitas premium untuk setiap momen spesial Anda. Higienis, halal, dan tepat waktu.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 pt-2">
+        <a href={whatsappLink} class="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-yellow-200 hover:-translate-y-1">
+          Pesan Sekarang <ChevronRight class="w-5 h-5" />
+        </a>
+        <a href="#menu" class="flex items-center justify-center gap-2 bg-white border-2 border-slate-100 hover:border-yellow-200 px-8 py-4 rounded-2xl font-bold text-lg transition-all">
+          Lihat Menu
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 text-sm text-slate-500 pt-6 border-t border-slate-50">
+        <div class="flex -space-x-3">
+          {[11, 12, 13, 14].map((img) => (
+            <img 
+              src={`https://i.pravatar.cc/100?img=${img}`} 
+              alt="User" 
+              class="w-10 h-10 rounded-full border-2 border-white bg-slate-200"
+              loading="lazy"
+            />
+          ))}
+        </div>
+        <span class="font-medium text-xs md:text-sm">Dipesan oleh 1,000+ pelanggan puas bulan ini</span>
+      </div>
+    </div>
+
+    <div class="relative flex justify-center lg:justify-end items-center">
+      <div class="absolute -inset-10 bg-yellow-400/10 rounded-full blur-3xl -z-10"></div>
+      <div class="relative w-full max-w-sm lg:max-w-md">
+        <div class="rounded-[3rem] overflow-hidden shadow-2xl transform md:-rotate-2 hover:rotate-0 transition-transform duration-700">
+          <img 
+            src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1000&auto=format&fit=crop" 
+            alt="Hidangan lezat dari Catering Mama" 
+            class="w-full h-[450px] lg:h-[550px] object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="absolute -bottom-6 -left-6 lg:-left-12 bg-white p-5 md:p-6 rounded-3xl shadow-2xl hidden lg:block animate-bounce-slow border border-slate-50">
+          <div class="flex items-center gap-4">
+            <div class="bg-green-100 p-3 rounded-2xl">
+              <CheckCircle class="w-6 h-6 text-green-600" />
+            </div>
+            <div>
+              <p class="font-bold text-base">100% Halal</p>
+              <p class="text-xs text-slate-500 font-medium">Terverifikasi MUI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
