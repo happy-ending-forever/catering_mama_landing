@@ -1,56 +1,191 @@
 ---
-import { Star } from 'lucide-astro';
+import { Star } from "lucide-astro";
 
 const testimonials = [
-  { 
-    name: 'Siska Amelia', 
-    role: 'Pengantin', 
-    quote: 'Catering Mama bikin resepsiku berkesan banget! Tamu-tamu pada muji rendang dan sate ayamnya. Pelayanannya juga ramah.',
-    avatar: 'https://i.pravatar.cc/100?u=siska'
+  {
+    name: "Siska Amelia",
+    role: "Pengantin",
+    quote:
+      "Catering Mama bikin resepsiku berkesan banget! Tamu-tamu pada muji rendang dan sate ayamnya. Pelayanannya juga ramah.",
+    avatar: "https://i.pravatar.cc/100?u=siska",
   },
-  { 
-    name: 'Andi Pratama', 
-    role: 'Corporate HR', 
-    quote: 'Menu nasi kotaknya variatif banget, nggak bikin bosan buat meeting mingguan. Pengiriman selalu on-time, top banget!',
-    avatar: 'https://i.pravatar.cc/100?u=andi'
+  {
+    name: "Andi Pratama",
+    role: "Corporate HR",
+    quote:
+      "Menu nasi kotaknya variatif banget, nggak bikin bosan buat meeting mingguan. Pengiriman selalu on-time, top banget!",
+    avatar: "https://i.pravatar.cc/100?u=andi",
   },
-  { 
-    name: 'Ibu Rahma', 
-    role: 'Pelanggan Aqiqah', 
-    quote: 'Aqiqah anak saya jadi gampang banget berkat Catering Mama. Kambingnya empuk, porsinya pas, dan rapi packing-nya.',
-    avatar: 'https://i.pravatar.cc/100?u=rahma'
-  }
+  {
+    name: "Ibu Rahma",
+    role: "Pelanggan Aqiqah",
+    quote:
+      "Aqiqah anak saya jadi gampang banget berkat Catering Mama. Kambingnya empuk, porsinya pas, dan rapi packing-nya.",
+    avatar: "https://i.pravatar.cc/100?u=rahma",
+  },
 ];
 ---
 
 <section id="testimoni" class="py-24">
   <div class="container mx-auto px-6">
+    <!-- Header - centered -->
     <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
       <h2 class="text-4xl md:text-5xl font-bold">Apa Kata Pelanggan Kami?</h2>
       <div class="flex justify-center gap-1.5 text-yellow-400">
-        {[1, 2, 3, 4, 5].map(() => (
-          <Star class="w-6 h-6 fill-current" />
-        ))}
+        {[1, 2, 3, 4, 5].map(() => <Star class="w-6 h-6 fill-current" />)}
       </div>
     </div>
-    <div class="grid md:grid-cols-3 gap-10">
-      {testimonials.map((t) => (
-        <div class="bg-slate-50 p-10 rounded-[2.5rem] relative">
-          <div class="absolute top-10 right-10 text-yellow-200 opacity-50">
-            <svg width="45" height="36" viewBox="0 0 45 36" fill="currentColor">
-              <path d="M13.5 0C6.045 0 0 6.045 0 13.5C0 19.89 4.365 25.29 10.305 26.685C9.36 29.385 6.75 31.5 3.15 32.85L0 34.2L1.8 36C9.9 33.3 14.85 27.45 14.85 19.8V0H13.5ZM43.65 0C36.195 0 30.15 6.045 30.15 13.5C30.15 19.89 34.515 25.29 40.455 26.685C39.51 29.385 36.9 31.5 33.3 32.85L30.15 34.2L31.95 36C40.05 33.3 45 27.45 45 19.8V0H43.65Z" />
-            </svg>
-          </div>
-          <p class="italic text-slate-600 mb-10 relative z-10 leading-relaxed text-lg">"{t.quote}"</p>
-          <div class="flex items-center gap-4">
-            <img src={t.avatar} alt={t.name} class="w-14 h-14 rounded-full border-2 border-white shadow-md" loading="lazy" />
-            <div>
-              <h5 class="font-bold text-lg">{t.name}</h5>
-              <p class="text-sm text-slate-500 font-medium">{t.role}</p>
+
+    <!-- Desktop: Grid layout -->
+    <div class="hidden md:grid md:grid-cols-3 gap-10">
+      {
+        testimonials.map((t) => (
+          <div class="bg-slate-50 p-10 rounded-[2.5rem] relative">
+            <div class="absolute top-10 right-10 text-yellow-200 opacity-50">
+              <svg
+                width="45"
+                height="36"
+                viewBox="0 0 45 36"
+                fill="currentColor"
+              >
+                <path d="M13.5 0C6.045 0 0 6.045 0 13.5C0 19.89 4.365 25.29 10.305 26.685C9.36 29.385 6.75 31.5 3.15 32.85L0 34.2L1.8 36C9.9 33.3 14.85 27.45 14.85 19.8V0H13.5ZM43.65 0C36.195 0 30.15 6.045 30.15 13.5C30.15 19.89 34.515 25.29 40.455 26.685C39.51 29.385 36.9 31.5 33.3 32.85L30.15 34.2L31.95 36C40.05 33.3 45 27.45 45 19.8V0H43.65Z" />
+              </svg>
+            </div>
+            <p class="italic text-slate-600 mb-10 relative z-10 leading-relaxed text-lg">
+              "{t.quote}"
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src={t.avatar}
+                alt={t.name}
+                class="w-14 h-14 rounded-full border-2 border-white shadow-md"
+                loading="lazy"
+              />
+              <div>
+                <h5 class="font-bold text-lg">{t.name}</h5>
+                <p class="text-sm text-slate-500 font-medium">{t.role}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
+    </div>
+
+    <!-- Mobile: Auto-scrolling Carousel -->
+    <div class="md:hidden relative overflow-hidden">
+      <div
+        id="testimonial-carousel"
+        class="flex transition-transform duration-500 ease-in-out"
+      >
+        {
+          testimonials.map((t, index) => (
+            <div class="w-full flex-shrink-0 px-2" data-index={index}>
+              <div class="bg-slate-50 p-8 rounded-[2rem] relative">
+                <div class="absolute top-8 right-8 text-yellow-200 opacity-50">
+                  <svg
+                    width="35"
+                    height="28"
+                    viewBox="0 0 45 36"
+                    fill="currentColor"
+                  >
+                    <path d="M13.5 0C6.045 0 0 6.045 0 13.5C0 19.89 4.365 25.29 10.305 26.685C9.36 29.385 6.75 31.5 3.15 32.85L0 34.2L1.8 36C9.9 33.3 14.85 27.45 14.85 19.8V0H13.5ZM43.65 0C36.195 0 30.15 6.045 30.15 13.5C30.15 19.89 34.515 25.29 40.455 26.685C39.51 29.385 36.9 31.5 33.3 32.85L30.15 34.2L31.95 36C40.05 33.3 45 27.45 45 19.8V0H43.65Z" />
+                  </svg>
+                </div>
+                <p class="italic text-slate-600 mb-8 relative z-10 leading-relaxed text-base pr-8">
+                  "{t.quote}"
+                </p>
+                <div class="flex items-center gap-3">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    class="w-12 h-12 rounded-full border-2 border-white shadow-md"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h5 class="font-bold">{t.name}</h5>
+                    <p class="text-sm text-slate-500 font-medium">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Carousel Indicators -->
+      <div class="flex justify-center gap-2 mt-6">
+        {
+          testimonials.map((_, index) => (
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-slate-300 transition-all duration-300"
+              data-index={index}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .carousel-dot.active {
+    width: 1.5rem;
+    background-color: #facc15;
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById("testimonial-carousel");
+  const dots = document.querySelectorAll(".carousel-dot");
+  let currentIndex = 0;
+  const totalSlides = 3;
+  let autoPlayInterval: ReturnType<typeof setInterval>;
+
+  function goToSlide(index: number) {
+    currentIndex = index;
+    if (carousel) {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(currentIndex);
+  }
+
+  // Initialize
+  goToSlide(0);
+
+  // Auto-play every 4 seconds
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 4000);
+  }
+
+  // Pause on hover/touch
+  carousel?.addEventListener("mouseenter", () =>
+    clearInterval(autoPlayInterval),
+  );
+  carousel?.addEventListener("mouseleave", startAutoPlay);
+  carousel?.addEventListener("touchstart", () =>
+    clearInterval(autoPlayInterval),
+  );
+  carousel?.addEventListener("touchend", () => {
+    setTimeout(startAutoPlay, 2000);
+  });
+
+  // Click on dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      clearInterval(autoPlayInterval);
+      goToSlide(index);
+      setTimeout(startAutoPlay, 3000);
+    });
+  });
+
+  // Start auto-play
+  startAutoPlay();
+</script>

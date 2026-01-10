@@ -1,5 +1,5 @@
 ---
-import { ChevronRight } from 'lucide-astro';
+import { ChevronRight, ChevronDown, ChevronUp } from "lucide-astro";
 
 interface Props {
   whatsappLink: string;
@@ -9,72 +9,169 @@ const { whatsappLink } = Astro.props;
 
 const featuredMenus = [
   {
-    name: 'Nasi Kuning Spesial Mama',
-    price: 'Rp 35.000',
-    tag: 'Best Seller',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop'
+    name: "Nasi Kuning Spesial Mama",
+    price: "Rp 35.000",
+    tag: "Best Seller",
+    image:
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop",
   },
   {
-    name: 'Sate Ayam Madura Asli',
-    price: 'Rp 45.000',
-    tag: 'Terfavorit',
-    image: 'https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=800&auto=format&fit=crop'
+    name: "Sate Ayam Madura Asli",
+    price: "Rp 45.000",
+    tag: "Terfavorit",
+    image:
+      "https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=800&auto=format&fit=crop",
   },
   {
-    name: 'Rendang Daging Sapi Premium',
-    price: 'Rp 55.000',
-    tag: 'Signature',
-    image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=800&auto=format&fit=crop'
-  }
+    name: "Rendang Daging Sapi Premium",
+    price: "Rp 55.000",
+    tag: "Signature",
+    image:
+      "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Ayam Bakar Bumbu Rujak",
+    price: "Rp 40.000",
+    tag: "Spicy",
+    image:
+      "https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Gulai Kambing Padang",
+    price: "Rp 65.000",
+    tag: "Premium",
+    image:
+      "https://images.unsplash.com/photo-1545247181-516773cae754?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Nasi Goreng Kampung",
+    price: "Rp 30.000",
+    tag: "Classic",
+    image:
+      "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop",
+  },
 ];
+
+const initialMenuCount = 3;
 ---
 
 <section id="menu" class="py-24">
   <div class="container mx-auto px-6">
-    <div class="flex flex-col items-center text-center mb-12 space-y-4">
+    <div class="flex flex-col text-center md:text-left mb-12 space-y-4">
       <div class="max-w-2xl space-y-4">
         <h2 class="text-4xl md:text-5xl font-bold">Menu Unggulan</h2>
-        <p class="text-slate-600">Pilihan menu terlaris yang selalu menjadi favorit pelanggan kami untuk berbagai kesempatan.</p>
+        <p class="text-slate-600">
+          Pilihan menu terlaris yang selalu menjadi favorit pelanggan kami untuk
+          berbagai kesempatan.
+        </p>
       </div>
     </div>
 
-    <div class="flex justify-end mb-8">
-      <a href={whatsappLink} class="text-yellow-600 font-bold border-b-2 border-yellow-200 hover:border-yellow-500 pb-1 transition-all flex items-center gap-2">
-        Lihat Semua Menu <ChevronRight class="w-4 h-4" />
-      </a>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      {featuredMenus.map((menu) => (
-        <div class="bg-white rounded-[2.5rem] overflow-hidden group border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col h-full">
-          <div class="aspect-square overflow-hidden relative">
-            <img 
-              src={menu.image} 
-              alt={menu.name} 
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            />
-            <div class="absolute top-6 right-6 bg-yellow-400 text-white px-5 py-2 rounded-full text-xs font-bold shadow-lg">
-              {menu.tag}
-            </div>
-          </div>
-          <div class="p-10 flex flex-col flex-grow">
-            <div class="flex-grow">
-              <h4 class="text-2xl font-bold mb-3 line-clamp-2 h-16">{menu.name}</h4>
-              <div class="flex justify-between items-center mb-6">
-                <span class="text-slate-500 text-sm">Mulai dari</span>
-                <span class="text-2xl font-bold text-yellow-600">{menu.price}</span>
+    <div id="menu-grid" class="grid md:grid-cols-3 gap-8">
+      {
+        featuredMenus.map((menu, index) => (
+          <div
+            class={`menu-item bg-white rounded-[2.5rem] overflow-hidden group border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col h-full ${index >= initialMenuCount ? "hidden" : ""}`}
+            data-index={index}
+          >
+            <div class="aspect-square overflow-hidden relative">
+              <img
+                src={menu.image}
+                alt={menu.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+              <div class="absolute top-6 right-6 bg-yellow-400 text-white px-5 py-2 rounded-full text-xs font-bold shadow-lg">
+                {menu.tag}
               </div>
             </div>
-            <a 
-              href={whatsappLink}
-              class="block w-full py-4 border-2 border-yellow-100 text-yellow-700 font-bold rounded-2xl hover:bg-yellow-400 hover:text-white hover:border-yellow-400 transition-all active:scale-95 text-center"
-            >
-              Pesan Menu Ini
-            </a>
+            <div class="p-10 flex flex-col flex-grow">
+              <div class="flex-grow">
+                <h4 class="text-2xl font-bold mb-3 line-clamp-2 h-16">
+                  {menu.name}
+                </h4>
+                <div class="flex justify-between items-center mb-6">
+                  <span class="text-slate-500 text-sm">Mulai dari</span>
+                  <span class="text-2xl font-bold text-yellow-600">
+                    {menu.price}
+                  </span>
+                </div>
+              </div>
+              <a
+                href={whatsappLink}
+                class="block w-full py-4 border-2 border-yellow-100 text-yellow-700 font-bold rounded-2xl hover:bg-yellow-400 hover:text-white hover:border-yellow-400 transition-all active:scale-95 text-center"
+              >
+                Pesan Menu Ini
+              </a>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
+    </div>
+
+    <!-- Toggle Button -->
+    <div class="flex justify-center mt-12">
+      <button
+        id="toggle-menu-btn"
+        class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold px-8 py-4 rounded-2xl transition-all flex items-center gap-2 shadow-lg shadow-yellow-200 active:scale-95"
+      >
+        <span id="toggle-menu-text">Lihat Semua Menu</span>
+        <ChevronDown id="chevron-down" class="w-5 h-5" />
+        <ChevronUp id="chevron-up" class="w-5 h-5 hidden" />
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+  const toggleBtn = document.getElementById("toggle-menu-btn");
+  const toggleText = document.getElementById("toggle-menu-text");
+  const chevronDown = document.getElementById("chevron-down");
+  const chevronUp = document.getElementById("chevron-up");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const initialCount = 3;
+  let isExpanded = false;
+
+  toggleBtn?.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+
+    menuItems.forEach((item, index) => {
+      if (index >= initialCount) {
+        if (isExpanded) {
+          item.classList.remove("hidden");
+          // Add animation
+          item.classList.add("animate-fade-in");
+        } else {
+          item.classList.add("hidden");
+          item.classList.remove("animate-fade-in");
+        }
+      }
+    });
+
+    if (toggleText) {
+      toggleText.textContent = isExpanded
+        ? "Lihat Lebih Sedikit"
+        : "Lihat Semua Menu";
+    }
+
+    chevronDown?.classList.toggle("hidden", isExpanded);
+    chevronUp?.classList.toggle("hidden", !isExpanded);
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+</style>

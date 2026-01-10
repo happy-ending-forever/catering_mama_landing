@@ -1,5 +1,5 @@
 ---
-import { MapPin, Clock, Phone, MessageCircle } from 'lucide-astro';
+import { MapPin, Clock, Phone, Send, User, Mail, FileText } from "lucide-astro";
 
 interface Props {
   whatsappLink: string;
@@ -8,69 +8,185 @@ interface Props {
 const { whatsappLink } = Astro.props;
 ---
 
-<section id="kontak" class="py-24">
+<section id="kontak" class="py-24 bg-slate-50">
   <div class="container mx-auto px-6">
-    <div class="bg-white rounded-[4rem] shadow-2xl overflow-hidden border border-slate-100 flex flex-col md:flex-row">
-      <div class="md:w-1/2 p-12 lg:p-20 space-y-12">
-        <div class="space-y-6">
-          <h2 class="text-4xl md:text-5xl font-bold leading-tight">Siap Menghidangkan Yang Terbaik?</h2>
-          <p class="text-slate-600 text-lg">Hubungi kami untuk konsultasi menu dan penawaran harga spesial sesuai budget Anda.</p>
-        </div>
+    <!-- Header -->
+    <div class="text-center md:text-left max-w-2xl mb-16 space-y-4">
+      <h2 class="text-4xl md:text-5xl font-bold">Hubungi Kami</h2>
+      <p class="text-slate-600 text-lg">
+        Siap menghidangkan yang terbaik untuk momen spesial Anda. Konsultasikan
+        kebutuhan Anda sekarang.
+      </p>
+    </div>
 
-        <div class="space-y-8">
-          <div class="flex gap-5 items-center">
-            <div class="bg-yellow-100 p-4 rounded-2xl text-yellow-600">
-              <MapPin class="w-7 h-7" />
-            </div>
-            <div>
-              <h5 class="font-bold text-lg">Alamat Workshop</h5>
-              <p class="text-slate-500">Jl. Kebahagiaan No. 123, Jakarta Selatan</p>
-            </div>
-          </div>
-          <div class="flex gap-5 items-center">
-            <div class="bg-yellow-100 p-4 rounded-2xl text-yellow-600">
-              <Clock class="w-7 h-7" />
-            </div>
-            <div>
-              <h5 class="font-bold text-lg">Jam Operasional</h5>
-              <p class="text-slate-500">Senin - Minggu: 08.00 - 20.00 WIB</p>
-            </div>
-          </div>
-          <div class="flex gap-5 items-center">
-            <div class="bg-yellow-100 p-4 rounded-2xl text-yellow-600">
-              <Phone class="w-7 h-7" />
-            </div>
-            <div>
-              <h5 class="font-bold text-lg">WhatsApp Hotline</h5>
-              <p class="text-slate-500 font-medium">+62 812-3456-789</p>
-            </div>
-          </div>
-        </div>
-
-        <a 
-          href={whatsappLink}
-          class="inline-flex items-center gap-4 bg-[#25D366] hover:bg-[#128C7E] text-white px-12 py-6 rounded-[2rem] font-bold text-xl transition-all shadow-2xl shadow-green-100 active:scale-95 hover:-translate-y-1"
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Left: Info & Map -->
+      <div class="flex flex-col gap-8 h-full">
+        <!-- Contact Info Card -->
+        <div
+          class="bg-white rounded-3xl p-6 md:p-8 shadow-lg border border-slate-100"
         >
-          <MessageCircle class="w-7 h-7" /> Konsultasi Sekarang
-        </a>
-      </div>
-      <div class="md:w-1/2 bg-slate-200 min-h-[500px]">
-        <div class="w-full h-full relative bg-slate-300 flex items-center justify-center overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop" 
-            alt="Peta lokasi Catering Mama" 
-            class="w-full h-full object-cover opacity-50 grayscale"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-yellow-400/10 pointer-events-none"></div>
-          <div class="absolute bg-white p-6 rounded-3xl shadow-2xl flex items-center gap-4 animate-pulse">
-            <div class="bg-yellow-400 p-3 rounded-full text-white shadow-lg">
-              <MapPin class="w-6 h-6" />
+          <h3 class="text-xl font-bold mb-6">Informasi Kontak</h3>
+          <div class="space-y-5">
+            <div class="flex gap-4 items-center">
+              <div
+                class="bg-yellow-100 p-3 rounded-xl text-yellow-600 shrink-0"
+              >
+                <MapPin class="w-5 h-5" />
+              </div>
+              <div>
+                <h5 class="font-semibold">Alamat Workshop</h5>
+                <p class="text-slate-500 text-sm">
+                  Jl. Kebahagiaan No. 123, Jakarta Selatan
+                </p>
+              </div>
             </div>
-            <span class="font-bold text-lg">Lokasi Catering Mama</span>
+            <div class="flex gap-4 items-center">
+              <div
+                class="bg-yellow-100 p-3 rounded-xl text-yellow-600 shrink-0"
+              >
+                <Clock class="w-5 h-5" />
+              </div>
+              <div>
+                <h5 class="font-semibold">Jam Operasional</h5>
+                <p class="text-slate-500 text-sm">
+                  Senin - Minggu: 08.00 - 20.00 WIB
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-center">
+              <div
+                class="bg-yellow-100 p-3 rounded-xl text-yellow-600 shrink-0"
+              >
+                <Phone class="w-5 h-5" />
+              </div>
+              <div>
+                <h5 class="font-semibold">WhatsApp</h5>
+                <p class="text-slate-500 text-sm">0813-9197-7646</p>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Map -->
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 flex-1 min-h-[280px]"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.29279828955!2d106.75761148164092!3d-6.261493638986498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1ec2422b0b3%3A0x39a0d0fe47404d02!2sSouth%20Jakarta%2C%20South%20Jakarta%20City%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1704869100000!5m2!1sen!2sid"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full"
+            title="Lokasi Catering Mama"></iframe>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div
+        class="bg-white rounded-3xl p-6 md:p-10 shadow-lg border border-slate-100"
+      >
+        <h3 class="text-xl font-bold mb-2">Kirim Pesan</h3>
+        <p class="text-slate-500 text-sm mb-8">
+          Isi form di bawah untuk konsultasi menu dan harga.
+        </p>
+
+        <form id="contact-form" class="space-y-5">
+          <!-- Name Field -->
+          <div class="space-y-2">
+            <label
+              for="name"
+              class="text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <User class="w-4 h-4 text-slate-400" />
+              Nama Lengkap
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Masukkan nama Anda"
+              class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all text-slate-800 placeholder:text-slate-400"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div class="space-y-2">
+            <label
+              for="email"
+              class="text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <Mail class="w-4 h-4 text-slate-400" />
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="contoh@email.com"
+              class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all text-slate-800 placeholder:text-slate-400"
+            />
+          </div>
+
+          <!-- Notes Field -->
+          <div class="space-y-2">
+            <label
+              for="notes"
+              class="text-sm font-semibold text-slate-700 flex items-center gap-2"
+            >
+              <FileText class="w-4 h-4 text-slate-400" />
+              Catatan
+            </label>
+            <textarea
+              id="notes"
+              name="notes"
+              rows="4"
+              required
+              placeholder="Jelaskan kebutuhan catering Anda (jenis acara, jumlah porsi, tanggal, dll)"
+              class="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all text-slate-800 placeholder:text-slate-400 resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full flex justify-center items-center gap-3 bg-yellow-400 hover:bg-yellow-500 text-white px-6 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-yellow-200 active:scale-[0.98] hover:-translate-y-0.5 mt-4"
+          >
+            <Send class="w-5 h-5" />
+            Kirim Pesan
+          </button>
+        </form>
+
+        <p class="text-center text-slate-400 text-xs mt-6">
+          Atau hubungi langsung via
+          <a
+            href={whatsappLink}
+            class="text-green-600 font-semibold hover:underline">WhatsApp</a
+          >
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form as HTMLFormElement);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const notes = formData.get("notes");
+
+    // Create WhatsApp message
+    const message = `Halo Catering Mama!%0A%0ANama: ${name}%0AEmail: ${email}%0A%0ACatatan:%0A${notes}`;
+    const whatsappUrl = `https://wa.me/6281391977646?text=${message}`;
+
+    window.open(whatsappUrl, "_blank");
+  });
+</script>

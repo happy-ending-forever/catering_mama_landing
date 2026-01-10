@@ -1,12 +1,12 @@
 ---
-import { Utensils } from 'lucide-astro';
+import { Utensils } from "lucide-astro";
 
 const navLinks = [
-  { name: 'Layanan', href: '#layanan' },
-  { name: 'Menu', href: '#menu' },
-  { name: 'Keunggulan', href: '#keunggulan' },
-  { name: 'Testimoni', href: '#testimoni' },
-  { name: 'Kontak', href: '#kontak' },
+  { name: "Layanan", href: "#layanan" },
+  { name: "Menu", href: "#menu" },
+  { name: "Keunggulan", href: "#keunggulan" },
+  { name: "Testimoni", href: "#testimoni" },
+  { name: "Kontak", href: "#kontak" },
 ];
 ---
 
@@ -17,17 +17,26 @@ const navLinks = [
         <div class="bg-yellow-400 p-2.5 rounded-xl">
           <Utensils class="w-7 h-7 text-slate-900" />
         </div>
-        <span class="text-3xl font-bold tracking-tight font-outfit">Catering<span class="text-yellow-400">Mama</span></span>
+        <span class="text-3xl font-bold tracking-tight font-outfit"
+          >Catering<span class="text-yellow-400">Mama</span></span
+        >
       </div>
       <p class="text-slate-400 text-lg max-w-md leading-relaxed">
-        Memberikan kebahagiaan melalui hidangan lezat dan berkualitas sejak tahun 2010.
+        Memberikan kebahagiaan melalui hidangan lezat dan berkualitas sejak
+        tahun 2010.
       </p>
-      <div class="flex gap-10 text-slate-400">
-        {navLinks.map((link) => (
-          <a href={link.href} class="hover:text-yellow-400 transition-colors">{link.name}</a>
-        ))}
+      <div class="flex flex-wrap justify-center gap-4 md:gap-10 text-slate-400">
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class="hover:text-yellow-400 transition-colors">
+              {link.name}
+            </a>
+          ))
+        }
       </div>
-      <p class="pt-8 text-slate-600">&copy; 2026 Catering Mama. All Rights Reserved.</p>
+      <p class="pt-8 text-slate-600">
+        &copy; 2026 Catering Mama. All Rights Reserved.
+      </p>
     </div>
   </div>
 </footer>

@@ -1,86 +1,110 @@
 ---
-import { Heart, Users, Briefcase, Utensils, ChevronRight } from 'lucide-astro';
+import { Heart, Users, Briefcase, Utensils, ChevronRight } from "lucide-astro";
 
 const services = [
   {
-    title: 'Pernikahan',
-    desc: 'Paket katering prasmanan premium untuk hari bahagia Anda dengan dekorasi yang elegan dan menu eksklusif.',
-    icon: 'heart',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop',
-    gridClass: 'md:col-span-2 md:row-span-2',
-    iconSize: 'w-8 h-8',
-    titleSize: 'text-3xl',
-    descSize: 'text-base'
+    title: "Pernikahan",
+    desc: "Paket katering prasmanan premium untuk hari bahagia Anda dengan dekorasi yang elegan dan menu eksklusif.",
+    icon: "heart",
+    image:
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-2 md:row-span-2",
+    iconSize: "w-8 h-8",
+    titleSize: "text-3xl",
+    descSize: "text-base",
   },
   {
-    title: 'Aqiqah',
+    title: "Aqiqah",
     desc: "Layanan Aqiqah syar'i yang praktis dengan olahan kambing lezat.",
-    icon: 'users',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop',
-    gridClass: 'md:col-span-2 md:row-span-1',
-    iconSize: 'w-6 h-6',
-    titleSize: 'text-xl',
-    descSize: 'text-sm'
+    icon: "users",
+    image:
+      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-2 md:row-span-1",
+    iconSize: "w-6 h-6",
+    titleSize: "text-xl",
+    descSize: "text-sm",
   },
   {
-    title: 'Event Kantor',
-    desc: 'Katering profesional untuk meeting dan gathering.',
-    icon: 'briefcase',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop',
-    gridClass: 'md:col-span-1 md:row-span-1',
-    iconSize: 'w-6 h-6',
-    titleSize: 'text-xl',
-    descSize: 'text-sm'
+    title: "Event Kantor",
+    desc: "Katering profesional untuk meeting dan gathering.",
+    icon: "briefcase",
+    image:
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-1 md:row-span-1",
+    iconSize: "w-6 h-6",
+    titleSize: "text-xl",
+    descSize: "text-sm",
   },
   {
-    title: 'Nasi Box',
-    desc: 'Menu nasi kotak higienis dan variatif.',
-    icon: 'utensils',
-    image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?q=80&w=800&auto=format&fit=crop',
-    gridClass: 'md:col-span-1 md:row-span-1',
-    iconSize: 'w-6 h-6',
-    titleSize: 'text-xl',
-    descSize: 'text-sm'
-  }
+    title: "Nasi Box",
+    desc: "Menu nasi kotak higienis dan variatif.",
+    icon: "utensils",
+    image:
+      "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?q=80&w=800&auto=format&fit=crop",
+    gridClass: "md:col-span-1 md:row-span-1",
+    iconSize: "w-6 h-6",
+    titleSize: "text-xl",
+    descSize: "text-sm",
+  },
 ];
 ---
 
 <section id="layanan" class="py-24 bg-slate-50">
   <div class="container mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+    <div class="text-center md:text-left max-w-2xl mb-20 space-y-4">
       <h2 class="text-4xl md:text-5xl font-bold">Layanan Kami</h2>
-      <p class="text-slate-600">Pilihan paket katering profesional yang dikemas secara estetik dan higienis.</p>
+      <p class="text-slate-600">
+        Pilihan paket katering profesional yang dikemas secara estetik dan
+        higienis.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[700px]">
-      {services.map((item) => (
-        <div class={`group relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col ${item.gridClass}`}>
-          <div class="absolute inset-0 z-0">
-            <img 
-              src={item.image} 
-              alt={item.title} 
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-          </div>
-          <div class="relative z-10 p-8 h-full flex flex-col justify-end text-white">
-            <div class="bg-yellow-400 w-fit p-3 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
-              {item.icon === 'heart' && <Heart class={`${item.iconSize} text-yellow-600`} />}
-              {item.icon === 'users' && <Users class={`${item.iconSize} text-yellow-600`} />}
-              {item.icon === 'briefcase' && <Briefcase class={`${item.iconSize} text-yellow-600`} />}
-              {item.icon === 'utensils' && <Utensils class={`${item.iconSize} text-yellow-600`} />}
+    <div
+      class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[700px]"
+    >
+      {
+        services.map((item) => (
+          <div
+            class={`group relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col ${item.gridClass}`}
+          >
+            <div class="absolute inset-0 z-0">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
             </div>
-            <h3 class={`font-bold mb-2 ${item.titleSize}`}>{item.title}</h3>
-            <p class={`text-slate-100 leading-relaxed mb-4 line-clamp-2 group-hover:line-clamp-none transition-all ${item.descSize}`}>
-              {item.desc}
-            </p>
-            <button class="flex items-center gap-2 font-bold text-yellow-400 group/btn">
-              Cek Detail <ChevronRight class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
+            <div class="relative z-10 p-8 h-full flex flex-col justify-end text-white">
+              <div class="bg-yellow-400 w-fit p-3 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                {item.icon === "heart" && (
+                  <Heart class={`${item.iconSize} text-white`} />
+                )}
+                {item.icon === "users" && (
+                  <Users class={`${item.iconSize} text-white`} />
+                )}
+                {item.icon === "briefcase" && (
+                  <Briefcase class={`${item.iconSize} text-white`} />
+                )}
+                {item.icon === "utensils" && (
+                  <Utensils class={`${item.iconSize} text-white`} />
+                )}
+              </div>
+              <h3 class={`font-bold mb-2 ${item.titleSize}`}>{item.title}</h3>
+              <p
+                class={`text-slate-100 leading-relaxed mb-4 line-clamp-2 group-hover:line-clamp-none transition-all ${item.descSize}`}
+              >
+                {item.desc}
+              </p>
+              <button class="flex items-center gap-2 font-bold text-yellow-400 group/btn">
+                Cek Detail{" "}
+                <ChevronRight class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
